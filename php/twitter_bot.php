@@ -38,6 +38,11 @@ $post_status = false;
 /* main */
 try {
 
+
+	var_dump($argv);
+
+
+
 	// ツイッター用オブジェクト生成
 	$twitter = new twitter($logger);
 
