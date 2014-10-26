@@ -23,13 +23,11 @@ class bot extends Lib_Utility
 	public function __construct($logger = null)
 	{
 		try {
-
 			// 親クラスにログインスタンス渡す
 			parent::__construct($logger);
 
 			// ログオブジェクトを設定
 			$this->_logger = $logger;
-
 		} catch ( Exception $e ) {
 			throw new Exception('botUtil::__construct() エラー' . $e->getMessage());
 		}
@@ -44,7 +42,7 @@ class bot extends Lib_Utility
 	* @param string $name リプライを返すユーザの名前
 	* @return string $message 送信するメッセージ
 	*/
-	function getMessage ($arrWords, $name = '')
+	private function getMessage ($arrWords, $name = '')
 	 {
 		try {
 				$this->_logger->writeLog('info','botUtil::getMessage() メッセージ取得開始',$arrWords,$name);
@@ -111,10 +109,9 @@ class bot extends Lib_Utility
 	* @param string $screenName 文字列
 	* @return array $arrStatuses ツイートとその発言者の配列
 	*/
-	public function tweetAlready($screenName, $arrStatuses)
-	{
+        private function tweetAlready($screenName, $arrStatuses)
+        {
 		try {
-
 			$this->_logger->writeLog('info','botUtil::tweetAlready() 開始', array($screenName, $arrStatuses));
 
 			if (!is_array($arrStatuses)){
