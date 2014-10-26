@@ -38,11 +38,6 @@ $post_status = false;
 /* main */
 try {
 
-
-	var_dump($argv);
-
-
-
 	// ツイッター用オブジェクト生成
 	$twitter = new twitter($logger);
 
@@ -62,9 +57,6 @@ try {
 	$logger->writeLog('info', 'フォロワ',$arrfriends);
 
 	$yahooApi = new yahooApi($logger);
-
-	//テスト用に自分だけにする
-	//$arrfriends = array('screen_name' => 'haru141', 'name' => 'はるる', 'following' => 1);
 
 	foreach ($arrfriends as $friend) {
 		// 友達のツイートを最新1件取得(リプライ除く、RT除く)
